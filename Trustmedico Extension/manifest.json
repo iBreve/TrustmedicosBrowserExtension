@@ -1,0 +1,26 @@
+{
+  "name": "TrustMedico",
+  "version": "1.0",
+  "description": "Trustmedico extension, by Ben O'Sullivan, osullib8@tcd.ie",
+  "background":{
+    "page": "background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "newtab.html"
+  },
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "tabs"
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+}

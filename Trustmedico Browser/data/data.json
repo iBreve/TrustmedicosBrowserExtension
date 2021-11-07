@@ -1,0 +1,69 @@
+{
+  "articles": [
+    {
+      "id": 0,
+      "positives": 1,
+      "negatives": 2,
+      "link": "Link1",
+      "title": "Link1"
+    },
+    {
+      "id": 1,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link2",
+      "title": "Link2"
+    },
+    {
+      "id": 2,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link3",
+      "title": "Link3"
+    },
+    {
+      "id": 3,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link4",
+      "title": "Link4"
+    },
+    {
+      "id": 4,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link5",
+      "title": "Link5"
+    },
+
+    {
+      "id": 5,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link6",
+      "title": "Link6"
+    },
+    {
+      "id": 6,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link7",
+      "title": "Link7"
+    },
+    {
+      "id": 7,
+      "positives": 1,
+      "negatives": 0,
+      "link": "Link8",
+      "title": "Link8"
+    },
+
+    {
+      "id": 8,
+      "positives": 9,
+      "negatives": 0,
+      "link": "Link9",
+      "title": "Link9"
+    }
+  ]
+}
