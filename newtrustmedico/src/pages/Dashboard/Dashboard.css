@@ -1,0 +1,23 @@
+.dashMain{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trustscore{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.right{
+    width: 40%;
+    padding: 30px;
+}

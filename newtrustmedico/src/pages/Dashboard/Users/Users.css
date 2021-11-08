@@ -1,0 +1,43 @@
+.Users{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userItem{
+    width: 100%;
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.userTitle{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: left;
+}
+
+.userActive{
+    padding-top: 10px;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.userDate{
+    padding-top: 10px;
+}
+
+.userButton{
+    padding-top: 10px;
+}
+
+.usebutton{
+    width: 50%;
+    background-color: lightskyblue;
+    opacity: 80%;
+}
