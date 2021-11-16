@@ -1,9 +1,9 @@
-var addExtension = function(){
+var addFake = function(){
   var title = document.getElementById('title').value;
   var url = document.getElementById('url').value;
   var comment = document.getElementById('comment').value;
 
-  chrome.runtime.sendMessage({command: "post", url: url, title: title, comment: comment}, (response) =>{
+  chrome.runtime.sendMessage({command: "post", url: url, title: title, comment: comment, news: "Fake"}, (response) =>{
       console.log(response);
       if(response.status == 'success'){
           alert("it works")
@@ -13,10 +13,39 @@ var addExtension = function(){
   })
 }
 
+var addGood = function(){
+  var title = document.getElementById('title').value;
+  var url = document.getElementById('url').value;
+  var comment = document.getElementById('comment').value;
+
+  chrome.runtime.sendMessage({command: "post", url: url, title: title, comment: comment, news: "Good"}, (response) =>{
+      console.log(response);
+      if(response.status == 'success'){
+          alert("it works")
+      }else{
+          alert("check firebase")
+      }
+  })
+}
+
+
+function getPageDetails() {
+   
+  chrome.tabs.executeScript(null, { file: 'content.js' });
+  
+  chrome.runtime.onMessage.addListener(function(message) {
+      document.getElementById('title').value = message.title;
+      document.getElementById('url').value = message.url;
+  });
+};
+
+
+
 window.addEventListener('load', function(evt) {
   getPageDetails()
 
-  document.getElementById('addEvent').addEventListener('submit', addExtension);
+  document.getElementById('FakeNews').addEventListener('click', addFake);
+  document.getElementById('GoodNews').addEventListener('click', addGood);
 });
 
 chrome.runtime.sendMessage({command: "checkAuth"}, (response) => {
@@ -47,14 +76,3 @@ var loginFunc = function(){
     }
   });
 }
-
-function getPageDetails() {
-   
-  chrome.tabs.executeScript(null, { file: 'content.js' });
-  
-  chrome.runtime.onMessage.addListener(function(message) {
-      document.getElementById('title').value = message.title;
-      document.getElementById('url').value = message.url;
-  });
-};
-

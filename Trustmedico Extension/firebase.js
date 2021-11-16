@@ -64,8 +64,9 @@ async function GetTrust(msg, user) {
   const day = hour * 24;
   const year = day * 365;
   const d = new Date();
-  
-  db.collection("Fake news").where("url", "==", msg.url).get().then((doc) => {
+
+  if(msg.news == "Fake"){
+    db.collection("Fake news").where("url", "==", msg.url).get().then((doc) => {
       doc.forEach((doc) => {
           x = x + 1
       })
@@ -111,4 +112,52 @@ async function GetTrust(msg, user) {
           })
       }
   })
+  } else if(msg.news == "Good"){
+    db.collection("Good news").where("url", "==", msg.url).get().then((doc) => {
+      doc.forEach((doc) => {
+          x = x + 1
+      })
+      if(x > 0){
+          console.log("Document data:" + msg.url)
+          db.collection("Good news").where("url", "==", msg.url).get()
+          .then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                  db.collection("Good news").where("url", "==", msg.url).get().then((querySnapshot) => {
+                      querySnapshot.forEach((element) => {
+                          var Fake = element.data();
+                          mark = parseInt(Fake.marked) + 1
+                      })
+                  }).then(() => {
+                      var Ref = db.collection("Good news").doc(doc.id); 
+                      return Ref.update({
+                          marked: mark,
+                          user: user.email,
+                          timestamp: d
+                      })
+                  })
+                  .then(() => {
+                      //response({status: 'success'})
+                  })
+                  .catch((error) => {
+                      chrome.extension.getBackgroundPage().console.log("Error getting documents: ", error);
+                  });
+              });
+          })
+          .catch((error) => {
+              chrome.extension.getBackgroundPage().console.log("Error getting documents: ", error);
+          });
+      }else{
+          db.collection("Good news").add({
+              url: msg.url,
+              title: msg.title,
+              commetn: msg.comment,
+              positives: 0,
+              negatives: 0,
+              marked: 1,
+              user: user.email,
+              timestamp: d
+          })
+      }
+  })
+  }
 }
