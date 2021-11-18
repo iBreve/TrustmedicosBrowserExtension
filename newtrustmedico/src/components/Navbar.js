@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
+import Image from '../assets/TRUSTMEDICOS.jpg'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -18,9 +19,7 @@ function Navbar() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className="Title">
-            Trustmedico
-          </div>
+          <img src={Image} alt="Trustmedico" className='Image'/>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

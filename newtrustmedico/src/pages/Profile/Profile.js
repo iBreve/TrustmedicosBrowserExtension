@@ -1,9 +1,10 @@
 import "./Profile.css";
+import Details from './Details/Details'
 
 const Profile = () => {
     return (
         <div>
-            Profile
+            <Details/>
         </div>
   
     );

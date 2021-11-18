@@ -1,0 +1,28 @@
+.details{
+
+}
+
+.detailsItems{
+    flex: 1;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 30px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.Title{
+    text-align: center;
+    font-weight: bolder;
+}
+
+.detailsInfo{
+    display: flex;
+    justify-content: center;
+}
+
+.detailstext{
+    padding-right: 20px;
+}

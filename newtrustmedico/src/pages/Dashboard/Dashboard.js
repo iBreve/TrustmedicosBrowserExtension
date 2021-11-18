@@ -7,40 +7,48 @@ import Trust from './Trust Score/Trust'
 import Users from "./Users/Users";
 
 export default function Dashboard() {
-  const [info , setInfo] = useState([]);
+  const [fakeinfo , setFakeInfo] = useState([]);
+  const [goodinfo , setGoodInfo] = useState([]);
 
   useEffect(() => {
-      Fetchdata();
+      FetchFakedata();
+      FetchGooddata();
   }, []);
 
-  const Fetchdata = ()=>{
+  const FetchFakedata = ()=>{
       console.log("home");
       db.collection("Fake news").get().then((querySnapshot) => {
           querySnapshot.forEach(element => {
               var Fake = element.data();
-              console.log(Fake)
-              setInfo(arr => [...arr , Fake]);
+              setFakeInfo(arr => [...arr , Fake]);
                 
           });
       })
   }
+  const FetchGooddata = ()=>{
+    console.log("home");
+    db.collection("Good news").get().then((querySnapshot) => {
+        querySnapshot.forEach(element => {
+            var Good = element.data();
+            setGoodInfo(arr => [...arr , Good]);
+              
+        });
+    })
+}
 
   return (
     <div className='dashMain'>
       <div>
+        <h1 className='title'>Fake News</h1>
         {
-          info.map((data) => (
+          fakeinfo.map((data) => (
               <Links data={data}/>
           ))
         }
+        <h1 className='title'>Good News</h1>
         {
-          info.map((data) => (
-              <Links data={data}/>
-          ))
-        }
-        {
-          info.map((data) => (
-              <Links data={data}/>
+          goodinfo.map((data) => (
+          <Links data={data}/>
           ))
         }
       </div>
