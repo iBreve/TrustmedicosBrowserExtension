@@ -1,13 +1,20 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useContext, useState, useEffect } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../context/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import { auth } from "../../firebase"
+import './Login.css'
 //import { alignPropType } from "react-bootstrap/esm/DropdownMenu"
+
+function login(email, password) {
+  auth.signInWithEmailAndPassword(email, password)
+  history.push("/")
+}
 
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const  login  = useAuth()
+
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -17,9 +24,8 @@ export default function Login() {
 
     try {
       setError("")
-      setLoading(true)
+      //setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
     } catch {
       setError("Failed to log in")
     }
@@ -31,29 +37,35 @@ export default function Login() {
     <>
       <Card style={{ margin:'auto'}}>
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password" style={{ margin:'auto', marginTop: '10px'}}>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit" style={{ margin:'auto', marginTop: '20px'}}>
-              Log In
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/Forgot">Forgot Password?</Link>
+          <div className='loginItems'>
+            <h2 className='title'>Login Page</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email" className='email'>
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password" className='email'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <div className='button'>
+                <Button disabled={loading} type="submit" className='button'>
+                  Log In
+                </Button>
+              </div>
+            </Form>
+            <div className='bottom'>
+              <Link to="/Forgot">Forgot Password?</Link>
+            </div>
+            <div className='bottom'>
+              Need an account? <Link to="/SignUp">Sign Up</Link>
+            </div>
+            <div className='bottom'>
+             {error && <Alert variant="danger">{error}</Alert>}
+            </div>
           </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/SignUp">Sign Up</Link>
-      </div>
     </>
   )
 }

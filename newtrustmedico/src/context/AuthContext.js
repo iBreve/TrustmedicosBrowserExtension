@@ -7,15 +7,17 @@ export function useAuth() {
   return useContext(AuthContext)
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider(children) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
   function signup(email, password) {
+    console("Working?")
     return auth.createUserWithEmailAndPassword(email, password)
   }
 
   function login(email, password) {
+    console("Working?")
     return auth.signInWithEmailAndPassword(email, password)
   }
 

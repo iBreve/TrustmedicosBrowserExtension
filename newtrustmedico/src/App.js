@@ -8,6 +8,8 @@ import Login from "./pages/Authenication/Login"
 import Forgot from "./pages/Authenication/ForgotPassword"
 import SignUp from "./pages/Authenication/Signup"
 
+import PrivateRoute from "./PrivateRoute";
+
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -17,16 +19,7 @@ function App() {
         <Navbar/>
         <div>
           <Switch>
-            <Route exact path="/Home">
-              <Home/>
-            </Route>
-            <Route exact path="/Profile">
-              <Profile/>
-            </Route>
-            <Route exact path="/Dashboard">
-              <Dashboard/>
-            </Route>
-            <Route exact path="/">
+            <Route exact path="/Login">
               <Login/>
             </Route>
             <Route exact path="/SignUp">
@@ -35,6 +28,9 @@ function App() {
             <Route exact path="/Forgot">
               <Forgot/>
             </Route>
+            <PrivateRoute exact path="/Home" component={Home} />
+            <PrivateRoute exact path="/Profile" component={Profile} />
+            <PrivateRoute exact path="/Dashboard" component={Dashboard} />
           </Switch>
         </div>
       </div>

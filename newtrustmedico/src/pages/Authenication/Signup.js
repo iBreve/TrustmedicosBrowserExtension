@@ -2,12 +2,18 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../context/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import './SignUp.css'
+
+function signup(email, password) {
+  auth.createUserWithEmailAndPassword(email, password)
+  history.push("/")
+}
 
 export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
-  const signup = useAuth()
+  //const signup = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -23,7 +29,7 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
+
     } catch {
       setError("Failed to create an account")
     }
@@ -35,30 +41,36 @@ export default function Signup() {
     <>
       <Card style={{ margin:'auto'}} >
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password" style={{ margin:'auto', marginTop: '10px'}}>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm" style={{ margin:'auto', marginTop: '10px'}}>
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit" style={{ margin:'auto', marginTop: '20px'}}>
-              Sign Up
-            </Button>
-          </Form>
+          <div className='signupItems'>
+            <h2 className='title'>Sign Up Page</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email" className='email'>
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password" className='email'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm" className='email'>
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control type="password" ref={passwordConfirmRef} required />
+              </Form.Group>
+              <div className='button'>
+                <Button disabled={loading} type="submit">
+                  Sign Up
+                </Button>
+              </div>
+            </Form>
+            <div className='bottom'>
+              Already have an account? <Link to="/Login">Log In</Link>
+            </div>
+            <div className='bottom'>
+             {error && <Alert variant="danger">{error}</Alert>}
+            </div>
+          </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/Login">Log In</Link>
-      </div>
     </>
   )
 }

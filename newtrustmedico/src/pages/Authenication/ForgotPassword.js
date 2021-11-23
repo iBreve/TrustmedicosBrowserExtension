@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../context/AuthContext"
 import { Link } from "react-router-dom"
+import './ForgotPassword.css'
 
 export default function ForgotPassword() {
   const emailRef = useRef()
@@ -30,26 +31,33 @@ export default function ForgotPassword() {
     <>
       <Card style={{ margin:'auto'}}>
         <Card.Body>
-          <h2 className="text-center mb-4">Password Reset</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="success">{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit" style={{ margin:'auto', marginTop: '20px'}}>
-              Reset Password
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/Login">Login</Link>
+          <div className='forgotItems'>
+            <h2 className='title'>Password Reset</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            {message && <Alert variant="success">{message}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email" className='email'>
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <div className='button'>
+                <Button disabled={loading} type="submit" style={{ margin:'auto', marginTop: '20px'}}>
+                  Reset Password
+                </Button>
+              </div>
+            </Form>
+            <div className='bottom'>
+              <Link to="/Login">Login</Link>
+            </div>
+            <div className='bottom'>
+              Need an account? <Link to="/SignUp">Sign Up</Link>
+            </div>
+            <div className='bottom'>
+             {error && <Alert variant="danger">{error}</Alert>}
+            </div> 
           </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/SignUp">Sign Up</Link>
-      </div>
     </>
   )
 }
