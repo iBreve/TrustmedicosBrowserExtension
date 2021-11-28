@@ -15,5 +15,7 @@ The next task should be setting up the firebase authentication on the new webpag
 ## Requirements
 The react-routor-dom verision less then 4.0 is needed to run this project. The most up to date version is availble on the development branch as of 28/11/21
 
+## Blockchain
+
 ## Creator
-This project was created by Ben O'Sullivan, a 4th year computer engineering student at Trinity college Dublin in 2021.For more information contact me at osullib8@tcd.ie
+This project was created by Ben O'Sullivan, a 4th year computer engineering student at Trinity college Dublin in 2021.For more information contact me at osullib8@tcd.ie, my github accout. can be found at osullib8
