@@ -5,6 +5,11 @@ This Git hub contains the trustmedico, browser etension and
 
 ## WebPage
 
+### To Do
+Webpage the current firestore database is empty so must be filled using the trustmedico extension, a user/ account must be created simply use the old trust medico webpage to do this. 
+
+The 
+
 ## Requirements
 The react-routor-dom verision less then 4.0 is needed to run this project. The most up to date version is availble on the development branch as of 8/11/21
 
