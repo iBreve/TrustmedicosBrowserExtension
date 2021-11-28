@@ -11,53 +11,25 @@ import SignUp from "./pages/Authenication/Signup"
 import PrivateRoute from "./PrivateRoute";
 
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import { AuthContextProvider, useAuthState} from "./firebase";
 
-const AuthenticatedRoute = ({ component: C, ...props }) => {
-  const { isAuthenticated } = useAuthState()
-  console.log(`AuthenticatedRoute: ${isAuthenticated}`)
-  return (
-    <Route
-      {...props}
-      render={routeProps =>
-        isAuthenticated ? <C {...routeProps} /> : <Redirect to="/Login" />
-      }
-    />
-  )
-}
-
-const UnauthenticatedRoute = ({ component: C, ...props }) => {
-  const { isAuthenticated } = useAuthState()
-  console.log(`UnauthenticatedRoute: ${isAuthenticated}`)
-  return (
-    <Route
-      {...props}
-      render={routeProps =>
-        !isAuthenticated ? <C {...routeProps} /> : <Redirect to="/Home" />
-      }
-    />
-  )
-}
 
 function App() {
   return (
-    <AuthContextProvider>
     <Router>
       <div>
         <Navbar/>
         <div>
           <Switch>
-            <UnauthenticatedRoute exact path="/Login" component={Login} />
-            <UnauthenticatedRoute exact path="/SignUp" component={SignUp} />
-            <UnauthenticatedRoute exact path="/Forgot" component={Forgot} />
-            <AuthenticatedRoute exact path="/Home" component={Home} />
-            <AuthenticatedRoute exact path="/Profile" component={Profile} />
-            <AuthenticatedRoute exact path="/Dashboard" component={Dashboard} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/SignUp" component={SignUp} />
+            <Route exact path="/Forgot" component={Forgot} />
+            <Route exact path="/Home" component={Home} />
+            <Route exact path="/Profile" component={Profile} />
+            <Route exact path="/Dashboard" component={Dashboard} />
           </Switch>
         </div>
       </div>
     </Router>
-    </AuthContextProvider>
   );
 }
 

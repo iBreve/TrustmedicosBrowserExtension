@@ -1,6 +1,7 @@
 import React, { useRef, useContext, useState, useEffect } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom"
+import "./Login.css";
 //import { alignPropType } from "react-bootstrap/esm/DropdownMenu"
 
 export default function Login() {
@@ -16,8 +17,8 @@ export default function Login() {
 
     try {
       setError("")
-      //setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      setLoading(true)
+      //await login(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
       setError("Failed to log in")
