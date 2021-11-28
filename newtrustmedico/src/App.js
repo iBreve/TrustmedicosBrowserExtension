@@ -10,31 +10,54 @@ import SignUp from "./pages/Authenication/Signup"
 
 import PrivateRoute from "./PrivateRoute";
 
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import { AuthContextProvider, useAuthState} from "./firebase";
+
+const AuthenticatedRoute = ({ component: C, ...props }) => {
+  const { isAuthenticated } = useAuthState()
+  console.log(`AuthenticatedRoute: ${isAuthenticated}`)
+  return (
+    <Route
+      {...props}
+      render={routeProps =>
+        isAuthenticated ? <C {...routeProps} /> : <Redirect to="/Login" />
+      }
+    />
+  )
+}
+
+const UnauthenticatedRoute = ({ component: C, ...props }) => {
+  const { isAuthenticated } = useAuthState()
+  console.log(`UnauthenticatedRoute: ${isAuthenticated}`)
+  return (
+    <Route
+      {...props}
+      render={routeProps =>
+        !isAuthenticated ? <C {...routeProps} /> : <Redirect to="/Home" />
+      }
+    />
+  )
+}
 
 function App() {
   return (
+    <AuthContextProvider>
     <Router>
       <div>
         <Navbar/>
         <div>
           <Switch>
-            <Route exact path="/Login">
-              <Login/>
-            </Route>
-            <Route exact path="/SignUp">
-              <SignUp/>
-            </Route>
-            <Route exact path="/Forgot">
-              <Forgot/>
-            </Route>
-            <PrivateRoute exact path="/Home" component={Home} />
-            <PrivateRoute exact path="/Profile" component={Profile} />
-            <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+            <UnauthenticatedRoute exact path="/Login" component={Login} />
+            <UnauthenticatedRoute exact path="/SignUp" component={SignUp} />
+            <UnauthenticatedRoute exact path="/Forgot" component={Forgot} />
+            <AuthenticatedRoute exact path="/Home" component={Home} />
+            <AuthenticatedRoute exact path="/Profile" component={Profile} />
+            <AuthenticatedRoute exact path="/Dashboard" component={Dashboard} />
           </Switch>
         </div>
       </div>
     </Router>
+    </AuthContextProvider>
   );
 }
 

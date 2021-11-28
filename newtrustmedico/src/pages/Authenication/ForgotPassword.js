@@ -1,12 +1,10 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../../context/AuthContext"
 import { Link } from "react-router-dom"
 import './ForgotPassword.css'
 
 export default function ForgotPassword() {
   const emailRef = useRef()
-  const resetPassword = useAuth()
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)

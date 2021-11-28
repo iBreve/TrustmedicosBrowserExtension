@@ -1,11 +1,11 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyCSc7whBNgd5-8D5dp3hBTpdEDgRTPjTJA",
-  authDomain: "chrometrust.firebaseapp.com",
-  databaseURL: "https://chrometrust-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "chrometrust",
-  storageBucket: "chrometrust.appspot.com",
-  messagingSenderId: "239013785880",
-  appId: "1:239013785880:web:c673419cd54fa3577f6e6d"
+  apiKey: "AIzaSyBNps55n8XN4rAO1z7KWtSOmyv0nFXJDTA",
+  authDomain: "trustmedicos-c3f2a.firebaseapp.com",
+  projectId: "trustmedicos-c3f2a",
+  storageBucket: "trustmedicos-c3f2a.appspot.com",
+  messagingSenderId: "413045498012",
+  appId: "1:413045498012:web:2618f942d2ec53cb968d59",
+  measurementId: "G-98BGDR20BN"
 };
 
 firebase.initializeApp(firebaseConfig);
