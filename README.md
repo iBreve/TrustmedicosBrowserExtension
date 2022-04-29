@@ -11,6 +11,9 @@ Inorder to load the extension, enable the developer mode in Chrome browser and s
 
 This will install the extension to the Chrome browser.
 
+### To Do
+* To add flagging and highlight differentiation button
+
 ------
 ## Web Dashboard
 
@@ -22,15 +25,16 @@ Then use the command "ng serve" or "ng serve -o" to start the angular applicatio
 
 
 ### To Do
-To add additional reporting features
-To add support for different user groups for the dashboard
+* To add additional reporting features
+* To add support for different user groups for the dashboard
 
 
 ## Blockchain
 A concept for manual logging of reported URLs & updating their status after a review has been developed using the remix.ethereum.org platform to create smart contracts. The code can be accessed here: https://gist.github.com/2a6576ff8aa664a04c4eab220f375d25 
 
 ### To Do
-To be added
+* To be added to repository
+* Integration
 
 ------
 ## Contributors
