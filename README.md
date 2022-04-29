@@ -1,5 +1,9 @@
+# Project Title and Description
+**TRUST**MEDICOS aims to tackle health misinformation and achieve a trustworthy health information exchange.
+Learn more about the project on our website https://www.trustmedicos.com
+
 # TrustmedicosBrowserExtension
-This Git hub contains Trustmedicos Broweser extension and its Web Dashboard
+This Git hub contains **TRUST**MEDICOS Broweser extension and its Web Dashboard
 
 ## Browser Extension
 The browser extension is available inside the folder TrustMedico Extension.
@@ -24,10 +28,18 @@ To add support for different user groups for the dashboard
 
 ## Blockchain
 
+### To Do
+To be added
+
 ------
 ## Contributors
 Ben O'Sullivan - osullib8@tcd.ie
 Shri Charan - k.s.shricharan@gmail.com
+
 ----
 ## Managed by
-This project is currently managed by iBreve and can be reached through wahl@ibreve.com 
+This project is currently managed by iBreve and can be reached through info@ibreve.com 
+
+---
+## License
+This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
