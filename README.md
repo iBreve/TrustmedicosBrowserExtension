@@ -27,6 +27,7 @@ To add support for different user groups for the dashboard
 
 
 ## Blockchain
+A concept for manual logging of reported URLs & updating their status after a review has been developed using the remix.ethereum.org platform to create smart contracts. The code can be accessed here: https://gist.github.com/2a6576ff8aa664a04c4eab220f375d25 
 
 ### To Do
 To be added
