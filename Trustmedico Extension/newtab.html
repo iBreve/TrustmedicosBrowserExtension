@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
+        @import url('https://bootswatch.com/5/quartz/bootstrap.min.css');
+
         body {
             min-width: 420px;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
             font-size: 12px;
         }
-        input, textarea {
+
+        input,
+        textarea {
             width: 420px;
         }
+
         input#save {
-            font-weight: bold; width: auto;
+            font-weight: bold;
+            width: auto;
         }
     </style>
     <meta charset="utf-8">
 </head>
+
 <body>
-    <div class="loginArea" style="display:none;">
-        <label>Email:</label>
-        <input type="email">
-        <label>Password:</label>
-        <input type="password">
-        <button class="login-btn-auth" type="button">Login</button>
+    <div class="container">
+        <div class="loginArea" style="display:none;">
+            <label>Email:</label>
+            <input type="email" class="form-control"><br>
+            <label>Password:</label>
+            <input type="password" class="form-control">
+            <button class="login-btn-auth btn btn-primary" type="button">Login</button>
+        </div>
     </div>
-    <div class="loggedInArea" style="display:none;">
-        <form id="addEvent">
-            <p>
-                <label for="title">Title</label><br />
-                <input type="text" id="title" name="title" size="50" value="" />
-            </p>
-            <p>
-                <label for="url">Url</label><br />
-                <input type="text" id="url" name="url" size="50" value="" />
-            </p>
-            <p>
-                <label for="comment">Comment</label><br />
-                <input type="text" id="comment" name="comment" size="150" value="" />
-            </p>
-            <p>
-                <input id="check" type="submit" value="Save URL" />
-            </p>
-        </form>
+
+
+    <div class="container">
+        <div class="loggedInArea" style="display:none;">
+            <form id="addEvent">
+                <p>
+                    <label for="title">Title</label><br />
+                    <input type="text" id="title" class="form-control" name="title" size="50" value="" />
+                </p>
+                <br>
+                <p>
+                    <label for="url">Url</label><br />
+                    <input type="text" id="url" class="form-control" name="url" size="50" value="" />
+                </p>
+                <!-- <p>
+                    <label for="comment">Comment</label><br />
+                    <input type="text" id="comment" name="comment" size="150" value="" />
+                </p> -->
+                <p>
+                    <input id="check" type="button" class="btn btn-primary" value="Report URL" />
+                </p>
+            </form>
+        </div>
+
     </div>
+
     <script src="auth.js"></script>
 </body>
+
 </html>
