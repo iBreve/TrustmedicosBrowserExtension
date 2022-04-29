@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "trustmedicos-c3f2a"
+  },
+  "targets": {
+    "trustmedicos-c3f2a": {
+      "hosting": {
+        "TrustmedicosDashboard": [
+          "trustmedicos-c3f2a"
+        ]
+      }
+    }
+  }
+}
