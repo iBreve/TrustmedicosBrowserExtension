@@ -40,6 +40,8 @@ Shri Charan - k.s.shricharan@gmail.com
 ## Managed by
 This project is currently managed by iBreve and can be reached through info@ibreve.com 
 
+This project has received support from Trublo, a European Union’s Horizon 2020 research and innovation programme project under the Grant Agreement No 957228
+
 ---
 ## License
 This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
