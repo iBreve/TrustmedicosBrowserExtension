@@ -40,6 +40,7 @@ A concept for manual logging of reported URLs & updating their status after a re
 ## Contributors
 Ben O'Sullivan - osullib8@tcd.ie
 Shri Charan - k.s.shricharan@gmail.com
+Flavia Wahl - flavia@ibreve.com
 
 ----
 ## Managed by
