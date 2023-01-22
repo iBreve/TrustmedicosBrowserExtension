@@ -3,7 +3,7 @@
 Learn more about the project on our website https://www.trustmedicos.com
 
 # TrustmedicosBrowserExtension
-This Git hub contains **TRUST**MEDICOS Broweser extension and its Web Dashboard
+This Git hub contains **TRUST**MEDICOS Broweser extension and its Web Dashboard. Check out the Wiki for more information about the project.
 
 ## Browser Extension
 The browser extension is available inside the folder TrustMedico Extension.
